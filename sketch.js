@@ -14,7 +14,13 @@ function createGrid() {
             divRow.style.opacity = 0;
             divRow.className = "grid-box";
             divRow.id = i + j;
-            divColumn.appendChild(divRow);
+            
+            const divGridLines = document.createElement("div");
+            divGridLines.className = "grid-borders";
+            
+            divColumn.appendChild(divGridLines);
+            divGridLines.appendChild(divRow);
+            
         }
         container.appendChild(divColumn);
     }
@@ -36,13 +42,6 @@ function darkenGrid() {
             e.currentTarget.style.opacity = opacity;
             }
             console.log(opacity);
-            //e.target.style.opacity = opacity + .1;
-            });
-        x.addEventListener(
-            "mouseover",
-            (e) => {
-            //let opacity = e.currentTarget.style.opacity;
-            //console.log(opacity);
             });
     }
     return;
