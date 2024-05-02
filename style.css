@@ -5,18 +5,20 @@
 }
 body {
     height: 100svh;
-    background-color: #0d508f;
+    background-color: #144566;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 div {
     background-color: white;
     padding: 1rem;
 }
 #container {
-    background-color: #e046d9;
-    padding: 1rem;
+    background-color: #7e7e7e;
+    padding: .5rem;
     margin: 1rem;
     display: flex
 
@@ -27,4 +29,28 @@ div {
 .grid-borders {
     outline: #000000 solid 1px;
     padding: 0;
+}
+.bg-color {
+    background-color: #144566;
+    display: flex;
+}
+.flex-container {
+    display: flex;
+    
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.flex-column {
+    flex-direction: column;
+}
+.max-width {
+    max-width: 25rem;
+}
+input[type="number"] {
+    width: 2.5rem;
+    height: 1rem;
+}
+input[type="submit"] {
+    width: 5rem;
+    height: 2rem;
 }

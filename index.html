@@ -8,9 +8,23 @@
     <title>Sketch Pad</title>
 </head>
 <body>
-    <div id="container">
-
+    <h1>Sketchpad</h1>
+    <div class="flex-container bg-color max-width">
+        <fieldset>
+            <legend>Sketch Options:</legend>
+            <div class="flex-container bg-color">
+                <div class="flex-container flex-column bg-color">
+                    <div class="bg-color"><input type="radio" name="color-choice" id="monochrome" value="monochrome"><label for="monochrome">&nbsp Monochrome</label></div>
+                    <div class="bg-color"><input type="radio" name="color-choice" id="color" value="color"><label for="color">&nbsp color</label></div>
+                </div>
+                <div class="flex-container flex-column bg-color">
+                    <div class="bg-color"><input type="number" id="grid-size" value="16"><label for="grid-size">&nbsp Grid Size</label></div>
+                    <div class="bg-color"><input type="submit" id="resize" value="Resize"></div>
+                </div>
+            </div>
+        </fieldset>
     </div>
+    <div id="container"></div>
     
 </body>
 </html>
