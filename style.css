@@ -18,10 +18,13 @@ div {
     background-color: #e046d9;
     padding: 1rem;
     margin: 1rem;
-    max-width: 50rem;
+    max-width: 100rem;
     display: flex
 
 }
 .no-padding {
     padding: 0;
+}
+.grid-box {
+
 }

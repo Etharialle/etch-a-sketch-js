@@ -1,24 +1,57 @@
+
 function createGrid() {
-    const gridSize = 2;
+    const gridSize = 16;
     //let divColumn;
     //let divRow;
     const container = document.querySelector("#container");
-    //divColumn = document.createElement("div");
-    //container.appendChild(divColumn);
-    //divRow = document.createElement("div");
-    //divColumn.appendChild(divRow);
-    
-    for (let i=1; i === gridSize; i++) {
-        let divColumn = i;
-        divColumn = document.createElement("div");
-        container.appendChild(divColumn);
-        for (let j=1; j === gridSize; j++) {
-            let divRow = j;
-            divRow = document.createElement("div");
+    let b = 1;
+    for (let i = 1; i <= gridSize; i++) {
+        //let divColumn = i;
+        const divColumn = document.createElement("div");
+        divColumn.classList.add("no-padding");
+        for (let j = 1; j <= gridSize; j++) {
+            const divRow = document.createElement("div");
+            divRow.style.opacity = 0;
+            divRow.className = "grid-box";
+            divRow.id = i + j;
             divColumn.appendChild(divRow);
         }
+        container.appendChild(divColumn);
     }
-    
     return;
 }
+
+function darkenGrid() {
+    let gridBox = document.getElementsByClassName("grid-box");
+    let opacity =
+    console.log(gridBox);
+    for (const x of gridBox) {
+        x.addEventListener(
+            "mouseover",
+            (e) => {
+            e.target.style.backgroundColor = "black";
+            let opacity = parseFloat(e.target.style.opacity);
+            opacity = opacity + .1;
+            if (opacity < 1){
+            e.currentTarget.style.opacity = opacity;
+            }
+            console.log(opacity);
+            //e.target.style.opacity = opacity + .1;
+            });
+        x.addEventListener(
+            "mouseover",
+            (e) => {
+            //let opacity = e.currentTarget.style.opacity;
+            //console.log(opacity);
+            });
+    }
+    return;
+}
+
+
+
+
 createGrid();
+darkenGrid();
+
+const mouseTarget = document.getElementById("mouseTarget");
