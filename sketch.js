@@ -16,27 +16,33 @@ function createGrid(gridSize) {
             divGridLines.className = "grid-borders";
             divColumn.appendChild(divGridLines);
             divGridLines.appendChild(divRow);
-            //divColumn.appendChild(divRow);
         }
         container.appendChild(divColumn);
     }
-    darkenGrid();
+    darkenGrid(penStyle);
     return;
 }
 
-function darkenGrid() {
+function darkenGrid(penStyle) {
     let gridBox = document.getElementsByClassName("grid-box");
+    for (const x of gridBox) {
+        x.replaceWith(x.cloneNode(true));
+    }
+    gridBox = document.getElementsByClassName("grid-box");
     for (const x of gridBox) {
         x.addEventListener(
             "mouseover",
             (e) => {
-            e.target.style.backgroundColor = "black";
+            if (penStyle == "color") {
+                e.target.style.backgroundColor = randomHexColorCode();
+            } else {
+                e.target.style.backgroundColor = "black";
+            }
             let opacity = parseFloat(e.target.style.opacity);
             opacity = opacity + .1;
             if (opacity < 1){
             e.currentTarget.style.opacity = opacity;
             }
-            console.log(opacity);
             });
     }
     return;
@@ -57,19 +63,44 @@ function resizeGrid() {
     }
 }
 
+const randomHexColorCode = () => {
+    let n = (Math.random() * 0xfffff * 1000000).toString(16);
+    return '#' + n.slice(0, 6);
+  };
+
 const gridSizeInput = document.getElementById("grid-size");
 let newGridSizeValue = gridSizeInput.value;
 gridSizeInput.addEventListener("change", (event) => {
   newGridSizeValue = event.target.value
-  //console.log(number)
-})
+});
+
 const resize = document.querySelector("#resize");
-resize.addEventListener("click", function (e) {
-    //let newGridSizeId = document.getElementById("grid-size");
-    //let newGridSizeValue = newGridSizeId.getAttribute("value");
-    console.log(newGridSizeValue);
-    createGrid(newGridSizeValue);
+resize.addEventListener("click", () => {
+    if (newGridSizeValue <= 100 && newGridSizeValue >= 1) {
+        createGrid(newGridSizeValue);
+    } else {
+        window.alert("Grid Size out of Range!")
+        document.getElementById("grid-size").value = "16";
+    }
+});
+
+const colorRadio = document.querySelector("#color");
+const monochromeRadio = document.querySelector("#monochrome");
+const colorChoice = document.querySelectorAll('input[name="color-choice"]');
+colorRadio.addEventListener("click", () => {
+    if (colorRadio.checked) {
+        penStyle = "color";
+        darkenGrid(penStyle);
+    }
+});
+
+monochromeRadio.addEventListener("click", () => {
+    if (monochromeRadio.checked) {
+        penStyle = "black";
+        darkenGrid(penStyle);
+    }
   });
 
+let penStyle = "black";
 const gridSize = 16;
 createGrid(gridSize); 
