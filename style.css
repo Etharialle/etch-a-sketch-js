@@ -29,7 +29,7 @@ for grid creation*/
     padding: 0;
 }
 .grid-borders {
-    outline: #000000 solid 0px;
+    /*outline: #000000 solid 0px;*/
     padding: 0;
 }
 .bg-color {
