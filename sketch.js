@@ -1,6 +1,7 @@
 
 function createGrid(gridSize) {
     const container = document.querySelector("#container");
+    resizeGrid();
     const paddingSize = (12 / gridSize);
     for (let i = 1; i <= gridSize; i++) {
         const divColumn = document.createElement("div");
@@ -19,6 +20,7 @@ function createGrid(gridSize) {
         }
         container.appendChild(divColumn);
     }
+    darkenGrid();
     return;
 }
 
@@ -39,6 +41,35 @@ function darkenGrid() {
     }
     return;
 }
+
+function resizeGrid() {
+    var gridBorder = document.getElementsByClassName("grid-borders");
+    var gridPadding = document.getElementsByClassName("grid-box");
+    var gridColumns = document.getElementsByClassName("no-padding");
+    while(gridBorder[0]) {
+        gridBorder[0].parentNode.removeChild(gridBorder[0]);
+    }
+    while(gridPadding[0]) {
+        gridPadding[0].parentNode.removeChild(gridPadding[0]);
+    }
+    while(gridColumns[0]) {
+        gridColumns[0].parentNode.removeChild(gridColumns[0]);
+    }
+}
+
+const gridSizeInput = document.getElementById("grid-size");
+let newGridSizeValue = gridSizeInput.value;
+gridSizeInput.addEventListener("change", (event) => {
+  newGridSizeValue = event.target.value
+  //console.log(number)
+})
+const resize = document.querySelector("#resize");
+resize.addEventListener("click", function (e) {
+    //let newGridSizeId = document.getElementById("grid-size");
+    //let newGridSizeValue = newGridSizeId.getAttribute("value");
+    console.log(newGridSizeValue);
+    createGrid(newGridSizeValue);
+  });
+
 const gridSize = 16;
-createGrid(gridSize);
-darkenGrid();
+createGrid(gridSize); 

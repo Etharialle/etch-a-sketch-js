@@ -23,6 +23,8 @@ div {
     display: flex
 
 }
+/* Do not use .no-padding or .grid-borders in HTML, they are only used
+for grid creation*/
 .no-padding {
     padding: 0;
 }
