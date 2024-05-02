@@ -12,29 +12,19 @@ body {
 }
 div {
     background-color: white;
-    padding: 16px;
+    padding: 1rem;
 }
 #container {
     background-color: #e046d9;
-    padding: 16px;
-    margin: 16px;
-    max-width: 1600px;
+    padding: 1rem;
+    margin: 1rem;
     display: flex
 
 }
 .no-padding {
     padding: 0;
 }
-.grid-box {
-    box-sizing: border-box;
-    border: #000000 solid 1px;
-    padding: 64.67px;
-
-}
 .grid-borders {
-    border: #000000 solid 1px;
+    outline: #000000 solid 1px;
     padding: 0;
-    box-sizing: content-box;
-
-
 }

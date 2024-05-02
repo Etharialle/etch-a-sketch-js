@@ -1,7 +1,7 @@
 
-function createGrid() {
-    const gridSize = 3;
+function createGrid(gridSize) {
     const container = document.querySelector("#container");
+    const paddingSize = (12 / gridSize);
     for (let i = 1; i <= gridSize; i++) {
         const divColumn = document.createElement("div");
         divColumn.classList.add("no-padding");
@@ -10,10 +10,12 @@ function createGrid() {
             divRow.style.opacity = 0;
             divRow.className = "grid-box";
             divRow.id = i + j;
+            divRow.style.padding = paddingSize + "rem";
             const divGridLines = document.createElement("div");
             divGridLines.className = "grid-borders";
             divColumn.appendChild(divGridLines);
             divGridLines.appendChild(divRow);
+            //divColumn.appendChild(divRow);
         }
         container.appendChild(divColumn);
     }
@@ -22,8 +24,6 @@ function createGrid() {
 
 function darkenGrid() {
     let gridBox = document.getElementsByClassName("grid-box");
-    let opacity =
-    console.log(gridBox);
     for (const x of gridBox) {
         x.addEventListener(
             "mouseover",
@@ -39,11 +39,6 @@ function darkenGrid() {
     }
     return;
 }
-
-
-
-
-createGrid();
+const gridSize = 16;
+createGrid(gridSize);
 darkenGrid();
-
-const mouseTarget = document.getElementById("mouseTarget");
