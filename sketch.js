@@ -1,6 +1,6 @@
 
 function createGrid() {
-    const gridSize = 16;
+    const gridSize = 3;
     const container = document.querySelector("#container");
     for (let i = 1; i <= gridSize; i++) {
         const divColumn = document.createElement("div");
