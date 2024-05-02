@@ -4,5 +4,24 @@
     padding: 0px;
 }
 body {
-    background-color: #00AA77;
+    height: 100svh;
+    background-color: #0d508f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div {
+    background-color: white;
+    padding: 1rem;
+}
+#container {
+    background-color: #e046d9;
+    padding: 1rem;
+    margin: 1rem;
+    max-width: 50rem;
+    display: flex
+
+}
+.no-padding {
+    padding: 0;
 }
