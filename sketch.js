@@ -31,7 +31,7 @@ function darkenGrid(penStyle) {
     gridBox = document.getElementsByClassName("grid-box");
     for (const x of gridBox) {
         x.addEventListener(
-            "mouseover",
+            "touchmove",
             (e) => {
             if (penStyle == "color") {
                 e.target.style.backgroundColor = randomHexColorCode();
